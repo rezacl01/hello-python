@@ -3,5 +3,7 @@ version: "3.1"
 services:
   web:
     build: .
+    volumes:
+      - ./main.py:/usr/src/app/main.py
     ports:
     - "5000:5000"

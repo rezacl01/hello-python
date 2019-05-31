@@ -8,12 +8,16 @@
    
 2. Build and run docker container from Dockerfile image listening on port 5000
    
-   docker build -t hello-python . && docker run -it -p 5000:5000 --rm hello-python
+   docker build -t hello-python . && docker run -p 5000:5000 --rm hello-python - pridat volume
    
-3. Access container from console
+3. Run docker container from Dockerfile image with mounted volume to avoid rebuilding during development
+
+   docker run -v /home/lu/Projects/hello-python/main.py:/usr/src/app/main.py -p 5000:5000 --rm hello-python
+   
+4. Access container from console
    docker build -t hello-python . && docker run -it --rm hello-python sh
    
-4. Docker-compose
+5. Docker-compose
    docker-compose build
    docker-compose up
 
